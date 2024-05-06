@@ -16,7 +16,7 @@ import {
 // Ensures cookie is sent
 axios.defaults.withCredentials = true;
 
-const serverUrl = import.meta.env.VITE_CLIENT_URL;
+const serverUrl = import.meta.env.VITE_VERCEL_CLIENT_URL;
 
 const AuthContext = createContext();
 
@@ -106,7 +106,7 @@ const Login = () => {
       // Gets authentication url from backend server
       const {
         data: { url },
-      } = await axios.get(`${serverUrl}/auth/url`);
+      } = await axios.get(`${serverUrl}/auth/url`, { withCredentials: true });
       // Navigate to consent screen
       window.location.assign(url);
     } catch (err) {
