@@ -5,11 +5,9 @@ import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const navigate = useNavigate();
-  const serverUrl = import.meta.env.VITE_VERCEL_SERVER_URL;
-
   const googleLogin = useGoogleLogin({
     onSuccess: async ({ code }) => {
-      const tokens = await axios.post(`${serverUrl}/auth/google`, {
+      const tokens = await axios.post(`/auth/google`, {
         code,
       });
       console.log(tokens);
@@ -22,6 +20,15 @@ const Login = () => {
       <div className="App">
         <button className="btn btn-text" onClick={googleLogin}>
           Login
+        </button>
+        <button
+          className="btn btn-text"
+          onClick={async () => {
+            let response = await axios.get(`/test`);
+            console.log(response.data);
+          }}
+        >
+          test
         </button>
       </div>
     </div>

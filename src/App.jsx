@@ -4,9 +4,8 @@ import Dashboard from "./pages/Dashboard";
 import axios from "axios";
 
 // Ensures cookie is sent
+axios.defaults.baseURL = import.meta.env.VITE_VERCEL_SERVER_URL;
 axios.defaults.withCredentials = true;
-
-const serverUrl = import.meta.env.VITE_VERCEL_SERVER_URL;
 
 function App() {
   return (
