@@ -1,36 +1,15 @@
-import { useGoogleLogin } from "@react-oauth/google";
-import React from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import pako from "pako";
+import PDFViewer from "./PDFViewer.jsx";
 
 const Login = () => {
-  const navigate = useNavigate();
-  const googleLogin = useGoogleLogin({
-    onSuccess: async ({ code }) => {
-      const tokens = await axios.post(`/auth/google`, {
-        code,
-      });
-      console.log(tokens);
-      navigate("/dashboard");
-    },
-    flow: "auth-code",
-  });
+  const pdfUrl =
+    "http://localhost:5173/file-1716973600048.pdf";
+
   return (
     <div>
-      <div className="App">
-        <button className="btn btn-text" onClick={googleLogin}>
-          Login
-        </button>
-        <button
-          className="btn btn-text"
-          onClick={async () => {
-            let response = await axios.get(`/test`);
-            console.log(response.data);
-          }}
-        >
-          test
-        </button>
-      </div>
+      <PDFViewer pdfUrl={pdfUrl}/>
     </div>
   );
 };
