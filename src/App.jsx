@@ -3,6 +3,12 @@ import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import axios from "axios";
 import Filecompress from "./pages/Filecompress";
+import NOM from "./pages/NOM";
+import ReactPDFPage from "./pages/ReactPDF.jsx";
+import GenNomPage from "./pages/GenNomPage.jsx";
+import GenSecCertPage from "./pages/GenSecCertPage.jsx";
+import ReactDatatableDND from "./pages/ReactDatatableDND.jsx";
+// import PDFMe from "./pages/PDFMe.tsx";
 
 // Ensures cookie is sent
 // axios.defaults.baseURL = import.meta.env.VITE_VERCEL_SERVER_URL;
@@ -17,7 +23,7 @@ function App() {
         <Routes>
           <Route path="/login" element={<Login />} />
 
-          <Route path="/" element={<Login />} />
+          <Route path="/" element={<Filecompress />} />
 
           <Route path="/dashboard" element={<Dashboard />} />
 
@@ -25,7 +31,12 @@ function App() {
 
           <Route path="/filecompress" element={<Filecompress />} />
 
-
+          <Route path="/nom" element={<NOM />} />
+          <Route path="/pdf" element={<ReactPDFPage />} />
+          <Route path="/genNom" element={<GenNomPage />} />
+          <Route path="/genseccert" element={<GenSecCertPage />} />
+          <Route path="/tablednd" element={<ReactDatatableDND />} />
+          {/* <Route path="/pdfme" element={<PDFMe />} /> */}
         </Routes>
       </BrowserRouter>
     </>

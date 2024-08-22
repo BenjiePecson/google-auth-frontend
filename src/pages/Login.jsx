@@ -9,7 +9,7 @@ const Login = () => {
 
   return (
     <div>
-      <PDFViewer pdfUrl={pdfUrl}/>
+      {/* <PDFViewer pdfUrl={pdfUrl}/> */}
     </div>
   );
 };
